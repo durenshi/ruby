@@ -32,3 +32,12 @@ p ['a', 'b', 'c'].zip([1, 2, 3])
 
 p ['a', 'b', 'c'].zip([1, 2, 3]).to_h
 # {"a"=>1, "b"=>2, "c"=>3}
+# 
+# 
+colors = ["red", "blue"]
+colors.push("black")
+colors << "white"
+puts colors.join(", ") # red, blue, black, white
+
+colors.pop
+puts colors.last #black
