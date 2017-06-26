@@ -32,12 +32,19 @@ p ['a', 'b', 'c'].zip([1, 2, 3])
 
 p ['a', 'b', 'c'].zip([1, 2, 3]).to_h
 # {"a"=>1, "b"=>2, "c"=>3}
-# 
-# 
+
+p ('a'..'z').to_a.sample                #随机选择a到z中的任意一个字符
+p ('a'..'z').to_a.sample(4).join(',')   #随机选择a到z中的任意4个字符
+
 colors = ["red", "blue"]
 colors.push("black")
 colors << "white"
 puts colors.join(", ") # red, blue, black, white
 
-colors.pop
-puts colors.last #black
+colors.pop        #remove最后一个元素
+puts colors.last       #black
+
+array = [1,2,3]
+p array.uniq       #[1,2,3]
+p array.uniq!
+p array

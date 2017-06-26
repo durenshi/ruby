@@ -72,3 +72,34 @@ samp.a2
 samp.b1
 samp.b2
 samp.s1
+
+module UserGender
+	module ClassMethod
+		def gender_options
+			{male: 1, female: 2}.to_a
+		end
+	end
+
+	def male?
+		gender == 1
+	end
+
+	def female?
+		gender == 2
+	end
+end
+
+class User
+	include UserGender
+	extend UserGender::ClassMethod
+
+	attr_accessor :name, :gender
+	def initialize(name, gender=1)
+		@name = name
+		@gender = gender
+	end
+end
+
+user = User.new('a')
+p user.male?             #true
+p User.gender_options    #[[:male, 1], [:female, 2]]
