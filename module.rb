@@ -103,3 +103,16 @@ end
 user = User.new('a')
 p user.male?             #true
 p User.gender_options    #[[:male, 1], [:female, 2]]
+
+module M
+	def greet
+		"hello from M"
+	end
+end
+
+include M
+
+class C;end
+c = C.new
+puts c.greet
+puts Object.ancestors

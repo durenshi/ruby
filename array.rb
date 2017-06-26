@@ -48,3 +48,13 @@ array = [1,2,3]
 p array.uniq       #[1,2,3]
 p array.uniq!
 p array
+
+class ArrayParams
+  def test_array_params(*modules)
+    p modules.length
+    p modules
+  end
+end
+
+ap = ArrayParams.new
+ap.test_array_params(:ss, :aaa ,"c")

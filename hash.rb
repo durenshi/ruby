@@ -22,9 +22,18 @@ p h.fetch('a', h.fetch(:a,11))
 
 attributes = [:name, :age]
 users = [[:a,10], [:b,11], [:c,12]]
+p users[0][0]   # :a
 h3  = {}
 users =
   users.map do |user|
     attributes.zip(user).to_h
   end
-p users
+p users     #[{:name=>:a, :age=>10}, {:name=>:b, :age=>11}, {:name=>:c, :age=>12}]
+
+# hash = {}
+hash = {page_info:{page_menu:"toAccepted", page_size:"30"}}
+page_info = { page_menu:"toAccepted", page_size:"50" }
+new_hash = Hash(hash[:page_info]).merge(page_info)
+p new_hash  # {:page_menu=>"toAccepted", :page_size=>"50"}
+hash[:page_info] = new_hash
+p hash      # {:page_info=>{:page_menu=>"toAccepted", :page_size=>"50"}}

@@ -11,3 +11,4 @@ p "10".to_i
 
 5.downto(1){ |x| p x }
 
+p "a"*10 #"aaaaaaaaaa"
