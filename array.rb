@@ -45,8 +45,8 @@ colors.pop        #remove最后一个元素
 puts colors.last       #black
 
 array = [1,2,3]
-p array.uniq       #[1,2,3]
-p array.uniq!
+p array.uniq       # [1,2,3]
+p array.uniq!      # nil
 p array
 
 class ArrayParams

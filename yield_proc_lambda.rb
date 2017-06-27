@@ -8,9 +8,11 @@ def proc_maker
 end
 proc_maker.call("ruby")     # ruby is great
 
+
 my_lambda = lambda { |n| puts "lambda call #{n}"}
 my_lambda.call(2)           #lambda call 2
 # my_lambda.call()          # 报错。Lambda对参数的检查很严格，而Proc则比较宽松
+
 
 def lambda_maker
   local_var = " is gread"
@@ -18,14 +20,14 @@ def lambda_maker
 end
 lambda_maker.call("ruby")
 
-def call_block
-  puts "start"
-  yield
-  yield
-  puts "end"
-end
 
-call_block { puts "Blocks are cool!" }
+def call_block
+  yield(1)
+  yield(2)
+  yield(3)
+end
+call_block { |i| puts "#{i}: Block are cool" }
+
 
 def contrived_example(n)
   yield n
@@ -43,6 +45,7 @@ def return_proc
 end
 puts return_proc
 # return proc
+
 
 def return_lambda
   l = lambda{ return "return lambda"}

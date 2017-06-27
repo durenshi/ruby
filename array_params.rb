@@ -24,16 +24,3 @@ class Person
 
 end
 
-person = Person.new
-eigenclass = class << person
-               self
-end
-
-superclass = class << Person
-               self
-end
-
-puts Person
-puts eigenclass
-puts superclass
-puts eigenclass ==   superclass

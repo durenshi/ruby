@@ -1,4 +1,12 @@
+3.times.each do |variable|
+  begin
+    1/0
+  rescue => err
+    puts "error"
+    raise err
 
+  end
+end
 
 begin
   if [1,2].sample == 1

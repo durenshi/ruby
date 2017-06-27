@@ -9,12 +9,14 @@ class Person
 
 end
 
+# 使用ClassName.class_eval可以定义一个实例方法
 Person.class_eval do
   def say_hello
     "hello! class_eval"
   end
 end
 
+# 使用ClassName.instance_eval可以定义一个类方法  可以用来定义单态函数singleton_methods
 Person.instance_eval do
   def say_hello
     "hello! instance_eval"
