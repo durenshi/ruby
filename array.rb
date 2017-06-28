@@ -62,8 +62,10 @@ ap.test_array_params(:ss, :aaa ,"c")
 # [:ss, :aaa, "c"]
 
 array_test = [1,2,3,4]
-p array_test.fetch(1)      # 1
+p array_test.fetch(1)      # 2
 p array_test[4]            # nil
-p array_test.fetch(4)      # error
+# p array_test.fetch(4)      # error
 p array_test.fetch(4,5)    # 5
 p array_test               #[1, 2, 3, 4]
+array_test << 5
+p array_test               #[1, 2, 3, 4, 5]
