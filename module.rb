@@ -58,10 +58,17 @@ module B
    	puts "b2"
    end
 end
+module CC
+	extend self
+	def c
+		puts "cccc"
+	end
+end
  
 class Sample
 include A
 include B
+include CC
    def s1
    end
 end
@@ -72,6 +79,10 @@ samp.a2
 samp.b1
 samp.b2
 samp.s1
+CC.c
+samp.c
+Sample.c  # error
+
 
 module UserGender
 	module ClassMethod
