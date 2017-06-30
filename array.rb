@@ -16,6 +16,15 @@
 p (1..10).inject{ |sum,n| sum+n }
 # 55
 
+p [1,2,3].map{ |x| {id:x}}
+# [{:id=>1}, {:id=>2}, {:id=>3}]
+
+p [1,2,3].map(&:to_s)
+# ["1", "2", "3"]
+
+p (1..10).map{ |x| {id: x} }
+# [{:id=>1}, {:id=>2}, {:id=>3}, {:id=>4}, {:id=>5}, {:id=>6}, {:id=>7}, {:id=>8}, {:id=>9}, {:id=>10}]
+
 p (1..10).map{ |x| x*2 }
 # [2, 4, 6, 8, 10, 12, 14, 16, 18, 20]
 
@@ -69,3 +78,9 @@ p array_test.fetch(4,5)    # 5
 p array_test               #[1, 2, 3, 4]
 array_test << 5
 p array_test               #[1, 2, 3, 4, 5]
+array_test.delete_if{|f| f<3}
+p array_test               # [3, 4, 5]
+
+types = [1,2,3]
+types = [4,5] + types
+p types
