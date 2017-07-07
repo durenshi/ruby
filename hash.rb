@@ -37,3 +37,29 @@ new_hash = Hash(hash[:page_info]).merge(page_info)
 p new_hash  # {:page_menu=>"toAccepted", :page_size=>"50"}
 hash[:page_info] = new_hash
 p hash      # {:page_info=>{:page_menu=>"toAccepted", :page_size=>"50"}}
+
+p hash.dig(:page_info)
+# {:page_menu=>"toAccepted", :page_size=>"50"}
+p hash.dig(:page_info,:page_menu)
+# "toAccepted"
+
+
+def update_page_info(page_info)
+  new_others = {}
+  if others.has_key?(:pageinfo)
+    new_others = person[:pageinfo].merge( pageinfo)
+    update(others: new_others)
+  else
+    others[:pageinfo] = pageinfo
+    update(others: others)
+  end
+end
+
+def update_page_info(page_info)
+  new_others = Hash(others[:page_info]).merge(page_info)
+  others[:page_info] = new_others
+  update(others: others)
+end
+
+
+

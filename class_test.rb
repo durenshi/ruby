@@ -22,6 +22,10 @@ class User
     {male: 1, female: 2}.to_a
   end
 
+  def user_class_method
+    gender_option    #错误，ruby中实例方法不能调用类方法
+  end
+
 end
 
 user = User.new 'a'
@@ -30,5 +34,6 @@ user.name = 'b'
 p user.name
 p User.gender_option
 p User.new('c').male?
+p user.user_class_method #错误
 
 

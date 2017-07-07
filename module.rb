@@ -16,13 +16,18 @@ module Week
 	def Week.weeks_in_year
 		puts "you have 52 weeks in a year"
 	end
+
+	def print_weeks
+		puts "you have weekends"
+	end
+
 end
 
-$LOAD_PATH << '.'
 class Decade
 	include Week
 	def no_of_months
 		puts Week::FIRST_DAY
+		print_weeks
 		number  = 10*12
 		puts number
 	end
@@ -33,6 +38,8 @@ puts Week::FIRST_DAY
 Week.weeks_in_month
 Week.weeks_in_year
 d1.no_of_months
+# Week.print_weeks
+d1.print_weeks
 
 
 # sunday
@@ -40,7 +47,8 @@ d1.no_of_months
 # you have 52 weeks in a year
 # sunday
 # 120
-# 
+# error Uncaught exception: undefined method `print_weeks' for Week:Module
+# you have weekends
 
 module A
    def a1
@@ -70,6 +78,8 @@ include A
 include B
 include CC
    def s1
+		 puts "s111"
+		 b1
    end
 end
  
@@ -81,7 +91,7 @@ samp.b2
 samp.s1
 CC.c
 samp.c
-Sample.c  # error
+ # Sample.c  # error
 
 
 module UserGender
@@ -97,7 +107,11 @@ module UserGender
 
 	def female?
 		gender == 2
-	end
+  end
+
+  def print_name
+    puts "his name is #{@name}"
+  end
 end
 
 class User
@@ -109,11 +123,18 @@ class User
 		@name = name
 		@gender = gender
 	end
+
+	def user_test
+		print_name
+	end
 end
 
 user = User.new('a')
+p user.name
 p user.male?             #true
 p User.gender_options    #[[:male, 1], [:female, 2]]
+user.print_name
+user.user_test
 
 module M
 	def greet
@@ -127,3 +148,6 @@ class C;end
 c = C.new
 puts c.greet
 puts Object.ancestors
+
+
+
