@@ -97,3 +97,29 @@ p (1..10).flat_map { |x| x*2 }
 a = [ 1, 2, [3, [4, 5] ] ]
 p a.flatten(1)              #=> [1, 2, 3, [4, 5]]
 p a.flatten(2)              #=> [1, 2, 3, 4, 5]
+
+export_date = 6
+export_end_date = 8
+date_arr = (export_date..export_end_date).map(&:to_i)
+puts date_arr
+str_time = date_arr.join(",")
+p str_time
+
+dates = [{start_at: 1, end_at: 3},{start_at: 6, end_at: 9}]
+user_times = [{spent_on:1,hours:0.1}, {spent_on:2,hours:0.2}, {spent_on:3,hours:0.2}, {spent_on:4,hours:0.4}, {spent_on:7,hours:0.7}]
+dates.each do |date|
+  hours = user_times.select do |i|
+    i[:spent_on]>=date[:start_at]&&i[:spent_on]<=date[:end_at]
+  end
+  sum = 0
+  hours.each do |hour|
+    sum += hour[:hours]
+  end
+  p sum
+end
+
+
+not_close = [{a:1,b:2},{a:3,b:3},{a:4,b:4}]
+close = [{a:1,b:2}]
+p not_close - close
+# [{:a=>3, :b=>3}, {:a=>4, :b=>4}]

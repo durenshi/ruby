@@ -44,22 +44,16 @@ p hash.dig(:page_info,:page_menu)
 # "toAccepted"
 
 
-def update_page_info(page_info)
-  new_others = {}
-  if others.has_key?(:pageinfo)
-    new_others = person[:pageinfo].merge( pageinfo)
-    update(others: new_others)
-  else
-    others[:pageinfo] = pageinfo
-    update(others: others)
-  end
-end
+h1 = { "a" => 100, "b" => 200 }
+h2 = { "b" => 254, "c" => 300 }
+h1.update(h2)
+p h1  #=> { "a" => 100, "b" => 254, "c" => 300 }
 
-def update_page_info(page_info)
-  new_others = Hash(others[:page_info]).merge(page_info)
-  others[:page_info] = new_others
-  update(others: others)
-end
+h1 = { "a" => 100, "b" => 200 }
+h2 = { "b" => 254, "c" => 300 }
+h1.merge(h2)
+p h1  #=> { "a" => 100, "b" => 200 }
+
 
 
 
